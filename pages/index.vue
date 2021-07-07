@@ -112,5 +112,24 @@
 </template>
 
 <script>
-export default {}
+
+import gql from "graphql-tag";
+
+//Queries
+import LatestProjectsQuery from "~/gql/queries/LatestProjects";
+
+export default {
+  async asyncData({ app }) {
+    const client = app.apolloProvider.defaultClient;
+    const projects = await client
+      .query({
+        query: LatestProjectsQuery
+      })
+      .then(({ data }) => data && data.projects.nodes);
+
+    return {
+      projects
+    };
+  }
+}
 </script>
