@@ -1,0 +1,65 @@
+query MyQuery ($id: ID!){
+  project(id: $id, idType: SLUG) {
+    id
+    link
+    slug
+    excerpt
+    title
+    uri
+    date
+    content
+    projectExtra {
+      projectPages
+      projectFrameworkVersion
+      projectLicence
+      projectGithubRepoName
+      projectLiveLink
+      projectVideoLink
+    }
+    technologies {
+      nodes {
+        id
+        name
+        slug
+        customFields {
+          technologyColorCode
+          technologyIcon
+        }
+      }
+    }
+    features {
+      nodes {
+        id
+        name
+        slug
+      }
+    }
+    categories {
+      nodes {
+        id
+        name
+        slug
+      }
+    }
+    tags {
+      nodes {
+        id
+        name
+        slug
+      }
+    }
+    projectTypes {
+        nodes {
+          id
+          name
+          slug
+        }
+      }
+    featuredImage {
+      node {
+        id
+        srcSet(size: MEDIUM_LARGE)
+      }
+    }
+  }
+}

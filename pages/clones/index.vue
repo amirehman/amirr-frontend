@@ -12,9 +12,11 @@
     <!-- jumbrotron -->
 
     <section class="my-24 latest" v-if="isItems">
+
       <div class="section-header mb-10">
-        <span class="capitalize text-xl tracking-wide font-medium select-none text-gray-">{{projectType.name}}</span>
+        <span class="capitalize text-xl tracking-wide font-medium select-none text-gray-800">Clones</span>
       </div>
+      <!--  -->
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
 
@@ -44,7 +46,7 @@ export default {
   async asyncData({ $gqlQueries, redirect }) {
 
     const responses = await Promise.all([
-      $gqlQueries.getProjectsByType('templates'),
+      $gqlQueries.getProjectsByType('clones'),
     ])
 
     if(!responses[0]){ redirect('/')}

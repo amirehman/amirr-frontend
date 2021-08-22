@@ -48,7 +48,7 @@
           slug
         }
       }
-      projectTypes {
+    projectTypes {
         nodes {
           id
           name

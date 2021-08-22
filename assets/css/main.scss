@@ -8,16 +8,75 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-a:focus {
+.nuxt-link-active:not(.not-active) {
   @apply outline-none ring ring-green-200
 }
-a:active {
+
+a:not(.not-active):target-within {
   @apply outline-none ring ring-green-200
 }
+a:not(.not-active):target {
+  @apply outline-none ring ring-green-200
+}
+a:not(.not-active):focus {
+  @apply outline-none ring ring-green-200
+}
+a:not(.not-active):active {
+  @apply outline-none ring ring-green-200
+}
+
+.content h2{
+  @apply text-xl font-medium text-gray-700
+}
+
+.content{
+  @apply text-gray-800
+}
+
 
 .theme-focus:active {
   @apply outline-none bg-yellow-100 ring ring-green-200
 }
 .theme-focus:focus {
   @apply outline-none bg-yellow-100 ring ring-green-200
+}
+
+.detail-content h1,
+.detail-content h2,
+.detail-content h3,
+.detail-content h4,
+.detail-content h5,
+.detail-content h6,{
+  @apply font-semibold;
+}
+
+.detail-content h3{
+  @apply text-3xl;
+}
+.detail-content h4{
+  @apply text-2xl;
+}
+.detail-content h5{
+  @apply text-xl;
+}
+.detail-content h6{
+  @apply text-lg;
+}
+
+
+.detail-content pre {
+  @apply bg-gray-100 overflow-x-scroll max-h-screen p-5 rounded-xl;
+
+  &::-webkit-scrollbar {
+    @apply w-5 h-5 rounded-2xl;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 border-2 rounded-xl;
+  }
+
 }
