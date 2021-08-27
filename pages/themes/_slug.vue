@@ -38,6 +38,10 @@
               <ProjectContent :content="project.content" />
           </div>
 
+          <div class="comments mt-24">
+            <Disqus />
+          </div>
+
           </div>
           <!-- table section end -->
 
@@ -52,8 +56,6 @@
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
@@ -72,14 +74,12 @@ export default {
 
     const responses = await Promise.all([
       $gqlQueries.getProject(params.slug),
-      // $githubApi.getRepo('akmoha')
     ])
 
     if(!responses[0]){ redirect('/404')}
 
     return {
       project: responses[0],
-      // repo: responses[1],
     }
   }
 }

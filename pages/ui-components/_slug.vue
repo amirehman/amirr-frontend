@@ -36,13 +36,17 @@
               <ProjectContent :content="project.content" title="" />
           </div>
 
+          <div class="comments mt-24">
+            <Disqus />
+          </div>
+
           </div>
           <!-- table section end -->
 
           <div class="elemets-used w-full lg:w-1/3 border rounded-xl p-5 order-1 lg:order-2">
             <ProjectTechnologies :technologies="project.technologies.nodes" />
             <hr class="my-6">
-            <ProjectComponentDetails :project="project" :repo-name="repo.json.name" />
+            <ProjectComponentDetails :project="project" :repo-name="repo.name" />
           </div>
         </div>
       </section>
@@ -51,22 +55,30 @@
 </template>
 
 <script>
-
-
 export default {
+  data() {
+    return {
+      repo: {}
+    }
+  },
+  mounted() {
+    if(this.project) {
+      return this.$githubApi.getRepo(this.project.projectExtra.projectGithubRepoName)
+      .then((repo) => {
+          this.repo = repo.json;
+      });
+    }
+  },
   async asyncData({ $gqlQueries, $githubApi, params, redirect }) {
-    // console.log(params.slug)
 
     const responses = await Promise.all([
       $gqlQueries.getProject(params.slug),
-      $githubApi.getRepo('akmoha')
     ])
 
     if(!responses[0]){ redirect('/404')}
 
     return {
       project: responses[0],
-      repo: responses[1],
     }
   }
 }

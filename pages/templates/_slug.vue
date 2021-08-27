@@ -31,11 +31,15 @@
       <section class="info mb-0 lg:mb-32">
         <div class="w-full flex flex-wrap lg:flex-nowrap lg:space-x-16">
           <div class="w-full lg:w-2/3 order-2 lg:order-1">
-            <ProjectDetails :project="project" :repo-name="repo.json.name" />
+            <ProjectDetails :project="project" :repo-name="repo.name" />
           <!-- table end -->
 
           <div class="overview mt-16 md:my-16 w-full">
               <ProjectContent :content="project.content" />
+          </div>
+
+          <div class="comments mt-24">
+            <Disqus />
           </div>
 
           </div>
@@ -52,22 +56,30 @@
 </template>
 
 <script>
-
-
 export default {
+  data() {
+    return {
+      repo: {}
+    }
+  },
+  mounted() {
+    if(this.project) {
+      return this.$githubApi.getRepo(this.project.projectExtra.projectGithubRepoName)
+      .then((repo) => {
+          this.repo = repo.json;
+      });
+    }
+  },
   async asyncData({ $gqlQueries, $githubApi, params, redirect }) {
-    // console.log(params.slug)
 
     const responses = await Promise.all([
       $gqlQueries.getProject(params.slug),
-      $githubApi.getRepo('akmoha')
     ])
 
     if(!responses[0]){ redirect('/404')}
 
     return {
       project: responses[0],
-      repo: responses[1],
     }
   }
 }

@@ -1,0 +1,8 @@
+query MyQuery ($id: ID!){
+  page(id: $id, idType: URI) {
+    id
+    title
+    slug
+    content
+  }
+}

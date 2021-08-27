@@ -2,16 +2,16 @@
   <div>
 
     <section class="my-16 jumbotron bg-green-50 h-48 rounded-2xl">
-      <div class="h-full flex items-center justify-center">
+      <div class="h-full flex items-center justify-center relative">
         <h1 class="px-5 text-center text-2xl md:text-3xl md:tracking-wide md:leading-10 font-light capitalize text-gray-800">
-          <span class="lg:block text-center">Free themes, templates, and UI tools to help you </span>
-          <span class="lg:block text-center">start your next project!</span>
+          <span class="lg:block text-center">Free TailwindCSS, Bootstrap and custom templates, </span>
+          <span class="lg:block text-center">to help you start your next project!</span>
         </h1>
       </div>
     </section>
     <!-- jumbrotron -->
 
-    <section class="my-24 latest" v-if="isItems">
+    <section class="my-8 md:my-12" v-if="isItems">
       <div class="section-header mb-10">
         <span class="capitalize text-xl tracking-wide font-medium select-none text-gray-">{{projectType.name}}</span>
       </div>

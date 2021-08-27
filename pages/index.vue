@@ -11,7 +11,7 @@
     </section>
     <!-- jumbrotron -->
 
-    <section class="my-8 md:my-24 latest">
+    <section class="my-8 md:my-12 latest">
 
       <div class="section-header mb-10">
         <span class="capitalize text-xl tracking-wide font-medium select-none text-gray-800">Latest</span>
