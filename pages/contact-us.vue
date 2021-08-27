@@ -3,11 +3,11 @@
 
     <div class="flex flex-wrap relative">
       <div class="absolute inset-0 flex justify-center lg:justify-end select-none">
-        <img src="../assets/images/mailbox.svg" class="select-none w-3/4 object-cover lg:object-contain opacity-10" alt="mention">
+        <img src="../assets/images/mailbox.svg" class="select-none w-3/4 object-cover lg:object-contain opacity-20" alt="mention">
       </div>
       <div class="relative z-1 w-full lg:w-1/2">
         <div class="pt-16">
-        <h1 class="text-2xl md:tracking-wide md:leading-10 font-normal capitalize text-gray-700">
+        <h1 class="text-2xl lg:text-3xl md:tracking-wide md:leading-10 font-normal capitalize text-gray-700">
           <span class="lg:block ">Contact Aamir Rehman</span>
         </h1>
       </div>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="my-10">
-        <div class="text-3xl text-gray-600 font-extralight">OR</div>
+        <div class="text-3xl text-gray-400 font-extralight">OR</div>
       </div>
 
       <div class="text-xl font-normal">

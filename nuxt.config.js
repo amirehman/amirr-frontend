@@ -32,10 +32,14 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/ngrok',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-129128246-1'
+    }]
   ],
 
   modules: [
     '@nuxtjs/apollo',
+    '@nuxtjs/sitemap'
   ],
 
   apollo: {
@@ -47,5 +51,27 @@ export default {
   },
 
   build: {
-  }
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://amirr.net',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: false,
+    routes: [
+      '/',
+      '/themes',
+      '/templates',
+      '/clones',
+      '/ui-components',
+      '/podcasts',
+      '/blogs',
+      '/support'
+    ].map(route => ({
+      url: route,
+      changefreq: 'monthly',
+      priority: 1,
+      lastmodISO: new Date().toISOString().split('T')[0]
+    }))
+  },
 }

@@ -16,7 +16,7 @@
     </nuxt-link>
     <div class="info p-3 space-y-1 md:space-y-0">
       <nuxt-link :to="`${projectTypeSlug}/${project.slug}`" class="not-active text-semibold text-2xl md:text-lg flex items-center justify-between">
-        <span>{{project.title}} {{project.slug}} </span>
+        <span>{{project.title}} </span>
         <span class="hidden text-sm font-semibold uppercase text-green-500 border bg-green-50 border-green-500 rounded px-2">Paid</span>
       </nuxt-link>
       <div class="text-gray-700 md:flex items-center justify-between text-sm">

@@ -3,7 +3,7 @@
 
     <div class="flex flex-wrap relative">
       <div class="absolute inset-0 flex items-end justify-center lg:justify-end select-none">
-        <img src="../assets/images/terms.svg" class="select-none w-3/4 object-cover lg:object-contain opacity-10" alt="mention">
+        <img src="../assets/images/term.svg" class="select-none w-full object-cover opacity-20" alt="mention">
       </div>
       <div class="relative z-1 w-full lg:w-1/2">
         <div class="pt-16">
