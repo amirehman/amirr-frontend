@@ -28,10 +28,32 @@
       </div>
       <!-- form element -->
 
+
+
       <div class="form-element">
 
+        <div v-if="captcha && !captcha.status">
+        <span type="submit" class="select-none transition-all duration-100 focus:outline-none active:outline-none group flex items-center h-full">
+          <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded-xl block mr-3 hover:bg-yellow-300 flex items-center space-x-2">
+            <span class="block">
+              {{captcha.num1}}
+              {{captcha.opreator}}
+              {{captcha.num2}}
+            </span>
+            <span>
+              =
+            </span>
+            <span>
+              <input type="text" v-model="input" @input="checkCaptcha" class="w-10 rounded-full bg-yellow-50 text-center focus:outline-none" placeholder="?">
+            </span>
+          </span>
+        </span>
+
+        </div>
+
+        <div v-else>
         <button v-if="isLoading" type="button" class="transition-all duration-100 focus:outline-none active:outline-none group flex items-center h-full" disabled>
-            <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded block mr-3 hover:bg-yellow-300 flex items-center space-x-2">
+          <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded block mr-3 hover:bg-yellow-300 flex items-center space-x-2">
             <div class="rounded-full animate-spin ease duration-300 w-5 h-5 border-2 border-l-0 border-gray-700 relative">
               <div class="absolute rounded-full w-full h-full border-3 inset-0"></div>
             </div>
@@ -43,6 +65,13 @@
             <span class="block">Submit</span>
           </span>
         </button>
+        </div>
+
+        <div v-if="captcha" class="select-none my-3"
+        :class="[
+          captcha.success ? 'text-green-500' : 'text-gray-600',
+          captcha.error ? 'text-red-500' : 'text-gray-600'
+        ]">{{captcha.message}}</div>
 
 
       </div>
@@ -63,9 +92,13 @@
 </template>
 
 <script>
+
+  import _ from 'lodash'
+
   export default {
     data() {
       return {
+        input: null,
         form: {
           name: null,
           email: null,
@@ -78,7 +111,20 @@
         isSubmitted: false
       }
     },
+    computed: {
+      captcha() {
+        return _.cloneDeep(this.$store.state.captcha.captcha)
+      }
+    },
+    mounted() {
+      this.$store.commit('captcha/generateCaptcha')
+    },
     methods: {
+
+      checkCaptcha () {
+        this.$store.dispatch('captcha/checkCaptcha', this.input)
+      },
+
       formSubmit (event) {
         this.isLoading = true
 

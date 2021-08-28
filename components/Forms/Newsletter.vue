@@ -1,7 +1,7 @@
 <template>
   <div>
     <form v-if="!isSubmitted" action="https://manage.amirr.net/wp-json/contact-form-7/v1/contact-forms/123/feedback" method="post" @submit.prevent="formSubmit">
-      <div class="form-element w-full md:w-3/4 mx-auto flex justify-center relative bg-theme-green-light border border-yellow-200 rounded-xl overflow-hidden">
+      <div class="form-element relative w-full md:w-3/4 mx-auto flex justify-center relative bg-theme-green-light border border-yellow-200 rounded-xl">
         <input type="email" v-model="email" name="your-email" required placeholder="email@yahoo.com" class="w-full border bg-transparent p-4 rounded-xl focus:outline-none active:outline-none">
 
           <button v-if="isLoading" type="button" class="transition-all duration-100 focus:outline-none active:outline-none group absolute right-0 top-0 flex items-center h-full" disabled>
@@ -12,6 +12,23 @@
           </span>
         </button>
 
+        <span type="submit" v-if="captcha && !captcha.status" class="select-none transition-all duration-100 focus:outline-none active:outline-none group absolute right-0 top-0 flex items-center h-full">
+          <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded-xl block mr-3 hover:bg-yellow-300 flex items-center space-x-2">
+            <span class="block">
+              {{captcha.num1}}
+              {{captcha.opreator}}
+              {{captcha.num2}}
+            </span>
+            <span>
+              =
+            </span>
+            <span>
+              <input type="text" v-model="input" @input="checkCaptcha" class="w-10 rounded-full bg-yellow-50 text-center focus:outline-none" placeholder="?">
+            </span>
+          </span>
+        </span>
+
+
         <button v-else type="submit" class="transition-all duration-100 focus:outline-none active:outline-none group absolute right-0 top-0 flex items-center h-full">
           <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded-xl block mr-3 hover:bg-yellow-300 flex items-center space-x-2">
             <span class="block">Subscribe</span>
@@ -20,7 +37,11 @@
             </span>
           </span>
         </button>
-
+        <div v-if="captcha" class="absolute -bottom-6 select-none right-0 text-sm"
+        :class="[
+          captcha.success ? 'text-green-500' : 'text-gray-600',
+          captcha.error ? 'text-red-500' : 'text-gray-600'
+        ]">{{captcha.message}}</div>
       </div>
     </form>
     <div v-else class="flex items-center justify-center w-full h-full text-gray-700 relative">
@@ -35,6 +56,9 @@
 </template>
 
 <script>
+
+  import _ from 'lodash'
+
   export default {
     data() {
       return {
@@ -42,10 +66,23 @@
         message: "You have been added to our mailing list and will now be among the first to hear about new uploads.",
         errors: [],
         isLoading: false,
-        isSubmitted: false
+        isSubmitted: false,
+        input: null
       }
     },
+    computed: {
+      captcha() {
+        return _.cloneDeep(this.$store.state.captcha.captcha)
+      }
+    },
+    mounted() {
+      this.$store.commit('captcha/generateCaptcha')
+    },
     methods: {
+      checkCaptcha () {
+        this.$store.dispatch('captcha/checkCaptcha', this.input)
+      },
+
       formSubmit (event) {
         this.isLoading = true
 
