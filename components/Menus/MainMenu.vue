@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul class="hidden lg:flex items-center font-normal text-gray-800">
-      <li class="pr-5">
+    <ul :class="isMenuActive ? 'flex border-b border-gray-300 pb-5 z-50 absolute h-auto left-0 top-16 w-full bg-theme-white space-y-4' : 'hidden lg:flex' " class="flex-col lg:flex-row items-center font-normal text-gray-800">
+      <li class="pr-5 hidden lg:block">
         <h1 class="capitalize text-xl tracking-wide font-semibold select-none">
           <nuxt-link to="/" class="not-active">Aamir R.</nuxt-link>
         </h1>
@@ -36,7 +36,12 @@
 export default {
   data() {
     return {
-      menu: null
+      menu: null,
+    }
+  },
+  computed: {
+    isMenuActive () {
+      return this.$store.state.isMenuActive
     }
   },
   async mounted() {

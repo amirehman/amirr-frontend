@@ -2,23 +2,22 @@
   <div>
     <div class="container mx-auto">
 
-      <nav class="navbar flex items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-12">
+      <nav class="navbar flex items-start lg:items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-12">
 
-          <MenusMainMenu />
+        <ul class="flex lg:hidden lg:items-center font-normal text-gray-800">
+          <li class="pr-5">
+            <h1 class="capitalize text-xl tracking-wide font-semibold select-none">
+              <nuxt-link to="/" class="not-active">Aamir R.</nuxt-link>
+            </h1>
+          </li>
+        </ul>
 
-          <ul class="flex lg:hidden items-center font-normal text-gray-800">
-            <li class="pr-5">
-              <h1 class="capitalize text-xl tracking-wide font-semibold select-none">
-                <nuxt-link to="/" class="not-active">Aamir R.</nuxt-link>
-              </h1>
-            </li>
-          </ul>
+        <MenusMainMenu />
 
-
-          <MenusTopRightMenu />
+        <MenusTopRightMenu />
 
         <ul class="flex lg:hidden items-center font-normal text-gray-800">
-            <li class="cursor-pointer">
+            <li class="cursor-pointer" @click="isActive(!isMenuActive)">
                 <svg class="fill-current w-8 mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 385 385"><path d="M12 84h361a12 12 0 000-24H12a12 12 0 000 24zM373 180H12a12 12 0 000 25h361a12 12 0 000-25zM373 301H12a12 12 0 000 24h361a12 12 0 000-24z"/></svg>
             </li>
         </ul>
@@ -79,3 +78,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    isMenuActive () {
+      return this.$store.state.isMenuActive
+    }
+  },
+  methods: {
+    isActive (status) {
+      this.$store.commit('isMenuActive', status)
+    }
+  },
+}
+</script>

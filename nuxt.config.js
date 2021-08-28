@@ -37,6 +37,10 @@ export default {
     }]
   ],
 
+  router: {
+    middleware: 'visit'
+  },
+
   modules: [
     '@nuxtjs/apollo',
     '@nuxtjs/sitemap'
