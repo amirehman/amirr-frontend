@@ -8,7 +8,7 @@ export const state = () => ({
     opreator: null,
     success: false,
     error: false,
-    message: 'Answer to the quesiton to subscribe.',
+    message: 'Answer to the quesiton to submit',
     attempts: 0
   }
 });
@@ -54,6 +54,15 @@ export const mutations = {
   },
 
   resetAttempts: function(state, payload) {
+    state.captcha.attempts = 0
+  },
+
+  resetCaptcha: function(state, payload) {
+    state.captcha.status = false
+    state.captcha.success = false
+    state.captcha.error = false
+    state.captcha.message = "Answer to the quesiton to submit"
+    state.captcha.input = null
     state.captcha.attempts = 0
   }
 }
