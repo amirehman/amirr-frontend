@@ -43,8 +43,8 @@
     data() {
       return {
         form: {
-          email: "hi@amirr.net",
-          password: "Kainat6@jan"
+          email: "",
+          password: ""
         },
         error: {},
         isLoading: false,
