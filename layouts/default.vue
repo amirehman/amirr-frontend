@@ -79,13 +79,41 @@
 </template>
 
 <script>
+
+import Cookies from 'js-cookie'
+
 export default {
   computed: {
     isMenuActive () {
       return this.$store.state.isMenuActive
     }
   },
+  mounted() {
+    this.setupFirebase()
+  },
   methods: {
+
+    setupFirebase() {
+      this.$fire.auth.onAuthStateChanged(user => {
+        if (user) {
+          // User is signed in.
+          console.log('signed in')
+          this.$fire
+            .auth
+            .currentUser.getIdToken(true)
+            .then(token => Cookies.set('access_token', token))
+          this.loggedIn = true
+        } else {
+          Cookies.remove('access_token')
+          // if (Cookies.set('access_token', 'blah')) {
+          // }
+          // No user is signed in.
+          this.loggedIn = false
+          console.log('signed out', this.loggedIn)
+        }
+      })
+    },
+
     isActive (status) {
       this.$store.commit('isMenuActive', status)
     }

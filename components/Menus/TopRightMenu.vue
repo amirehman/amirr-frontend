@@ -10,13 +10,13 @@
             {{menu.label}}
         </nuxt-link>
         </li>
+        <li v-if="$store.state.user">
+        <nuxt-link to="/profile" class="cursor-pointer px-5 py-2 inline-block rounded-full hover:bg-yellow-200 hover:text-black transition-all">Profile</nuxt-link>
+      </li>
       </template>
       <template v-else>
       <li>
         <nuxt-link to="/podcasts" class="mr-2 px-5 py-1 inline-block rounded-full bg-green-200 border-2 border-transparent hover:border-green-400 hover:bg-transparent hover:text-black transition-all">Podcasts</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/blogs" class="px-5 py-2 inline-block rounded-full hover:bg-yellow-200 hover:text-black transition-all">Blogs</nuxt-link>
       </li>
       <li>
         <nuxt-link to="/support" class="px-5 py-2 inline-block rounded-full hover:bg-yellow-200 hover:text-black transition-all">Support</nuxt-link>

@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         "theme-red": '#d62828',
         "theme-white": '#fbfefb',
+        "theme-white-1": '#f1faee',
         "theme-green-light": '#fbfefb',
       }
     },

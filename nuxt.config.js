@@ -42,12 +42,34 @@ export default {
   ],
 
   router: {
-    middleware: 'visit'
+    middleware: ['visit']
   },
 
   modules: [
     '@nuxtjs/apollo',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyBshurXjeGkW7V8BgcPzOmGkeoXiDQ0wgo",
+          authDomain: "amirr-769cd.firebaseapp.com",
+          projectId: "amirr-769cd",
+          storageBucket: "amirr-769cd.appspot.com",
+          messagingSenderId: "512265156590",
+          appId: "1:512265156590:web:939ece67dd580b593cc0ff",
+          measurementId: "G-3KE3PZ3KXT",
+        },
+        services: {
+          auth: {
+            persistence: 'local',
+            initialize: {
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+            },
+          }
+        }
+      }
+    ]
   ],
 
   apollo: {

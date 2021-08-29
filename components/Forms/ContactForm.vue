@@ -4,17 +4,17 @@
     <form v-if="!isSubmitted" action="https://manage.amirr.net/wp-json/contact-form-7/v1/contact-forms/104/feedback" method="post" @submit.prevent="formSubmit" class="space-y-6">
 
       <div class="form-element">
-        <input type="text" v-model="form.name" name="your-name" required placeholder="What’s your name?" class="p-3 w-full bg-transparent border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4">
+        <input type="text" v-model="form.name" name="your-name" required placeholder="What’s your name?" class="p-3 w-full bg-white bg-opacity-50 border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4">
       </div>
       <!-- form element -->
 
       <div class="form-element">
-        <input type="email" v-model="form.email" name="your-email" required placeholder="What’s your email address?" class="p-3 w-full bg-transparent border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4">
+        <input type="email" v-model="form.email" name="your-email" required placeholder="What’s your email address?" class="p-3 w-full bg-white bg-opacity-50 border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4">
       </div>
       <!-- form element -->
 
       <div class="form-element">
-        <select name="your-subject" v-model="form.subject" id="yourReason" class="p-3 form-select bg-transparent border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-auto">
+        <select name="your-subject" v-model="form.subject" id="yourReason" class="p-3 form-select bg-white bg-opacity-50 border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-auto">
           <option value="submit website/component">Submit Website/Component</option>
           <option value="hire">Hire</option>
           <option value="Suggestion">Suggestion</option>
@@ -24,7 +24,7 @@
       <!-- form element -->
 
       <div class="form-element">
-        <textarea v-model="form.message" name="your-message" rows="10" required placeholder="Feel free to type as much or as little as you like." class="p-3 w-full bg-transparent border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4"></textarea>
+        <textarea v-model="form.message" name="your-message" rows="10" required placeholder="Feel free to type as much or as little as you like." class="p-3 w-full bg-white bg-opacity-50 border border-gray-300 rounded focus:outline-none active:outline-none focus:border-yellow-300 focus:ring-transparent w-full md:w-3/4"></textarea>
       </div>
       <!-- form element -->
 
