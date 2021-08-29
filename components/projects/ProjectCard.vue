@@ -19,7 +19,7 @@
         <span>{{project.title}} </span>
         <span class="hidden text-sm font-semibold uppercase text-green-500 border bg-green-50 border-green-500 rounded px-2">Paid</span>
       </nuxt-link>
-      <div class="text-gray-700 md:flex items-center justify-between text-sm">
+      <div class="text-gray-500 lg:text-gray-700 flex items-center justify-between text-base lg:text-sm">
 
         <span class="block md:inline mt-1 md:mt-0">
         <template v-for="(category, b) in project.categories.nodes">

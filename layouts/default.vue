@@ -2,11 +2,11 @@
   <div>
     <div class="container mx-auto">
 
-      <nav class="navbar flex items-start lg:items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-12">
+      <nav class="navbar flex items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-12">
 
         <ul class="flex lg:hidden lg:items-center font-normal text-gray-800">
           <li class="pr-5">
-            <h1 class="capitalize text-xl tracking-wide font-semibold select-none">
+            <h1 class="capitalize text-2xl tracking-wide font-semibold select-none">
               <nuxt-link to="/" class="not-active">Aamir R.</nuxt-link>
             </h1>
           </li>

@@ -26,6 +26,7 @@
     "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "fibers": "^5.0.0",
     "postcss": "^8.3.5",

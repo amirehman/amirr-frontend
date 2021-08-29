@@ -1,7 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
-    title: 'Learn With Aamir',
+    title: 'Download free Tailwind, Bootstrap themes & templates | Aamir R.',
     htmlAttrs: {
       lang: 'en'
     },
@@ -9,8 +10,27 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:image', property: 'og:image', content: "/icon.png" },
+      {
+        hid: "title",
+        name: "title",
+        content: "Download free Tailwind, Bootstrap themes & templates | Aamir R."
+      },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Aamir R. presents Hght quality, free TailwindCSS, and Bootstrap themes, templates, and UI components to download. Get them now!"
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "tailwindui, tailwind css, tailwind ui kit, top bootstrap themes, 2021 tailwind templates to download, free download templates,  free templates, tailwind components, tailwind templates, react templates, angular templates, free components, vue templates, free bootstrap themes, 2021 bootstrap themes, 2021 bootstrap templates, 2021 tailwind themes, "
+      }
     ],
+
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
@@ -36,10 +56,30 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/ngrok',
+    '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
       id: 'UA-129128246-1'
     }]
   ],
+
+  pwa: {
+    icon: {
+        iconSrc: "./static/icon.png"
+    },
+    manifest: {
+        short_name: "Aamir R.",
+        name: "Aamir R.",
+        lang: "en",
+        start_url: "/",
+        background_color: "#fcd34d",
+        display: "standalone",
+        scope: "/",
+        theme_color: "#000000"
+    },
+    workbox: {
+        /* workbox options */
+    }
+  },
 
   router: {
     middleware: ['visit']
@@ -82,6 +122,7 @@ export default {
 
   build: {
   },
+
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://amirr.net',
@@ -104,4 +145,13 @@ export default {
       lastmodISO: new Date().toISOString().split('T')[0]
     }))
   },
+
+  render: {
+    static: {
+      maxAge: 60 * 60 * 24 * 365 * 1000,
+    },
+  },
+
+
+
 }

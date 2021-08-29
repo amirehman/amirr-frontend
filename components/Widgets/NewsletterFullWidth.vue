@@ -7,7 +7,7 @@
         </div>
 
         <div class="absolute inset-0 flex justify-center items-center ">
-            <img src="../../assets/images/envelope.svg" alt="envelope" class="h-full opacity-25">
+            <img src="../../assets/images/envelope.svg" width="100" height="100" alt="envelope" class="w-full h-full opacity-25">
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full relative z-1">
