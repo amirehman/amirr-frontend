@@ -8,12 +8,12 @@
       <div class="relative z-1 w-full lg:w-1/2">
         <div class="pt-16">
         <h1 class="text-2xl md:tracking-wide md:leading-10 font-normal capitalize text-gray-700">
-          <span class="lg:block ">Create Account</span>
+          <span class="lg:block ">Forget Password</span>
         </h1>
       </div>
 
       <div class="my-5 text-gray-700 space-y-3">
-        <FormsSignup />
+        <FormsForgetPassword />
       </div>
 
 

@@ -58,7 +58,8 @@ query MyQuery ($id: ID!){
     featuredImage {
       node {
         id
-        srcSet(size: MEDIUM_LARGE)
+        srcSet(size: MEDIUM)
+        sourceUrl
       }
     }
   }

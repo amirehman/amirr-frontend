@@ -3,7 +3,7 @@
     <ul class="text-gray-800">
       <template v-if="menu">
         <li v-for="menu in menu.menuItems.nodes" :key="menu.id">
-          <nuxt-link :to="menu.url" class="not-active">{{menu.label}}</nuxt-link>
+          <nuxt-link :to="menu.url" class="not-active text-lg lg:text-base">{{menu.label}}</nuxt-link>
         </li>
       </template>
     </ul>

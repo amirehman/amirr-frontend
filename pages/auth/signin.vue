@@ -16,6 +16,11 @@
         <FormsLogin />
       </div>
 
+      <div class="my-10 flex items-center text-gray-800 space-x-5">
+        <button class="border px-4 py-2 border rounded border-gray-300 hover:bg-yellow-200 hover:border-yellow-300" @click="signinWithGithub"> SignIn with Github </button>
+        <button class="border px-4 py-2 border rounded border-gray-300 hover:bg-yellow-200 hover:border-yellow-300" @click="signinWithGoogle"> SignIn with Google </button>
+      </div>
+
 
       </div>
     </div>
@@ -29,6 +34,45 @@
 import { getUserFromCookie } from '@/utils/auth'
 
   export default {
+    data() {
+      return {
+        error: {},
+      }
+    },
+    methods: {
+      async signinWithGithub () {
+          let that = this
+          const provider = new $nuxt.$fireModule.auth.GithubAuthProvider()
+          await this.$fire.auth.signInWithPopup(provider)
+
+          .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            that.error = {}
+            $nuxt.$router.push('/')
+          })
+          .catch((error) => {
+            that.error = error;
+          });
+      },
+
+      async signinWithGoogle () {
+          let that = this
+          const provider = new $nuxt.$fireModule.auth.GoogleAuthProvider()
+          await this.$fire.auth.signInWithPopup(provider)
+
+          .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            that.error = {}
+            $nuxt.$router.push('/')
+          })
+          .catch((error) => {
+            that.error = error;
+          });
+      }
+    },
+
     asyncData({ req, redirect, app }) {
     if (process.server) {
       const user = getUserFromCookie(req)
