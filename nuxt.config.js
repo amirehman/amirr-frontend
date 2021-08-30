@@ -2,14 +2,12 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
 
   head: {
-    title: 'Download free Tailwind, Bootstrap themes & templates | Aamir R.',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
       { hid: 'og:image', property: 'og:image', content: "/icon.png" },
       {
@@ -56,6 +54,7 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/ngrok',
+    'nuxt-ssr-cache',
     '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
       id: 'UA-129128246-1'
@@ -149,6 +148,19 @@ export default {
   render: {
     static: {
       maxAge: 60 * 60 * 24 * 365 * 1000,
+    },
+  },
+
+
+  cache: {
+    useHostPrefix: false,
+    pages: [
+      '/',
+    ],
+    store: {
+      type: 'memory',
+      max: 100,
+      ttl: 60,
     },
   },
 
