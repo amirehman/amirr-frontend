@@ -46,7 +46,8 @@ export default {
   plugins: [
     '~/plugins/githubApi',
     '~/plugins/queries',
-    '~/plugins/disqus'
+    '~/plugins/disqus',
+    { src: '@/plugins/vue-shortkey.js', mode: 'client' }
   ],
 
   components: true,

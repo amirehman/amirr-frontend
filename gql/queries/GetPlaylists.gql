@@ -1,0 +1,26 @@
+{
+  playlists {
+    nodes {
+      id
+      name
+      slug
+      playlistExtra {
+        playlistRequirements
+        playlistTitle
+        playlistThumbnail {
+          id
+          srcSet
+          sourceUrl
+        }
+      }
+      description
+      slug
+      projects {
+        nodes{
+          id
+          title
+        }
+      }
+    }
+  }
+}

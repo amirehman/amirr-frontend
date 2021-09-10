@@ -78,3 +78,40 @@ a:not(.not-active):active {
   }
 
 }
+
+
+.data-type-button {
+  @apply w-1/2 absolute top-0 h-full bg-green-100 transition-all rounded-full;
+  &.playlist-active {
+    animation: dataTypeAnimation-playlist-active 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  &.videos-active {
+    animation: dataTypeAnimation-video-active 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes dataTypeAnimation-playlist-active {
+
+  0%  {
+    @apply left-32;
+  }
+
+  100% {
+    @apply left-0;
+  }
+
+}
+
+@keyframes dataTypeAnimation-video-active {
+
+  0%  {
+    @apply left-0;
+  }
+
+  100% {
+    @apply left-32;
+  }
+
+}

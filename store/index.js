@@ -1,11 +1,15 @@
 export const state = () => ({
   isMenuActive: false,
-  user: null
+  user: null,
+  isProjectSidePanelOpen: true
 });
 
 export const mutations = {
   isMenuActive: function(state, payload) {
     state.isMenuActive = payload;
+  },
+  isProjectSidePanelOpen: function(state, payload) {
+    state.isProjectSidePanelOpen = payload;
   },
 
   SET_USER(state, user) {

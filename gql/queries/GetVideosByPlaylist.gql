@@ -1,0 +1,31 @@
+query MyQuery ($id: ID!){
+  playlist(idType: SLUG, id: $id) {
+    id
+    name
+    slug
+    description
+    slug
+    projects(where: {orderby: {field: DATE, order: ASC}}) {
+      nodes{
+        id
+        title
+        slug
+        playlists {
+          nodes {
+            id
+            name
+            slug
+          }
+        }
+        featuredImage {
+          node {
+            id
+            srcSet(size: MEDIUM)
+            sourceUrl
+          }
+        }
+      }
+    }
+
+  }
+}

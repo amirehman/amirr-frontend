@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="rounded-xl overflow-hidden border">
+    <div :class="type === 'video' ? 'rounded-t-xl' : 'rounded-xl' " class="overflow-hidden border">
       <iframe
         v-if="project.projectExtra.projectVideoLink"
         class="w-full h-52 md:h-[380px] xl:h-[665px] 2xl:h-[810px]"
@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    props: ['project'],
+    props: ['project', 'type'],
     computed: {
       images () {
         const arr = this.project.featuredImage.node.srcSet.split(',');

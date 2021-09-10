@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto">
 
-      <nav class="navbar flex items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-12">
+      <nav class="navbar flex items-center w-full justify-between text-gray-700 mt-5 px-5 md:px-0">
 
         <ul class="flex lg:hidden lg:items-center font-normal text-gray-800">
           <li class="pr-5">
@@ -23,7 +23,7 @@
         </ul>
       </nav>
 
-      <section class="px-5 md:px-12">
+      <section class="px-5 md:px-0">
         <nuxt/>
       </section>
 

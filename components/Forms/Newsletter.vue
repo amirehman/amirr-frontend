@@ -1,8 +1,8 @@
 <template>
   <div>
     <form v-if="!isSubmitted" action="https://manage.amirr.net/wp-json/contact-form-7/v1/contact-forms/123/feedback" method="post" @submit.prevent="formSubmit">
-      <div class="form-element relative w-full md:w-3/4 mx-auto flex justify-center relative bg-theme-green-light border border-yellow-200 rounded-xl">
-        <input type="email" v-model="email" name="your-email" required placeholder="email@yahoo.com" class="w-full border bg-transparent p-4 rounded-xl focus:outline-none active:outline-none">
+      <div class="form-element relative w-full lg:w-3/4 lg:ml-auto flex justify-center relative bg-theme-green-light border border-yellow-200 rounded-xl">
+        <input type="email" v-model="email" name="your-email" required placeholder="your@email.com" class="w-full border bg-transparent p-4 rounded-xl focus:outline-none active:outline-none">
 
           <button v-if="isLoading" type="button" class="transition-all duration-100 focus:outline-none active:outline-none group absolute right-0 top-0 flex items-center h-full" disabled>
             <span class="group-foucs:ring group-foucs:ring-green-200 px-4 py-2 bg-yellow-200 transition-all rounded-xl block mr-3 hover:bg-yellow-300 flex items-center space-x-2">

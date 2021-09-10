@@ -1,0 +1,50 @@
+query MyQuery {
+  projectType(idType: SLUG, id: "learn-with-aamir") {
+    name
+    slug
+    projects {
+      nodes {
+        id
+        link
+        slug
+        excerpt
+        title
+        uri
+        date
+        playlists {
+          nodes {
+            id
+            name
+            slug
+          }
+        }
+        projectExtra {
+          projectPages
+          projectFrameworkVersion
+          projectLicence
+          projectGithubRepoName
+          projectLiveLink
+          projectVideoLink
+        }
+        technologies {
+          nodes {
+            id
+            name
+            slug
+            customFields {
+              technologyColorCode
+              technologyIcon
+            }
+          }
+        }
+        featuredImage {
+          node {
+            id
+            srcSet(size: MEDIUM)
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}

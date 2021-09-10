@@ -1,5 +1,5 @@
 {
-  projects {
+  projects(where: {tagNotIn: 86}) {
     nodes {
       id
       link
@@ -48,7 +48,7 @@
           slug
         }
       }
-      projectTypes {
+      projectTypes(where: {slug: ["clones", "templates", "themes", "ui-components"]}) {
         nodes {
           id
           name
