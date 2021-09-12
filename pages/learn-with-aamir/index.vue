@@ -20,7 +20,7 @@
               <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-yellow-300 transition cursor-pointer" v-for="data in datas" :key="data.id">
 
                   <ProjectsLearnWithAmirPlaylistBox v-if="dataType == 'playlist-active'" :data="data" :title="data.name" />
-                  <ProjectsLearnWithAmirProjectBox v-else :data="data" :title="data.title" />
+                  <ProjectsLearnWithAmirProjectBox :is-show-playlist="true" v-else :data="data" :title="data.title" />
 
               </div>
               <!-- column -->

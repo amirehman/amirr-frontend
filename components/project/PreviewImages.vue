@@ -2,7 +2,7 @@
   <div>
     <div :class="type === 'video' ? 'rounded-t-xl' : 'rounded-xl' " class="overflow-hidden border">
       <iframe
-        v-if="project.projectExtra.projectVideoLink"
+        v-if="type === 'video' && project.projectExtra.projectVideoLink"
         class="w-full h-52 md:h-[380px] xl:h-[665px] 2xl:h-[810px]"
         :src="`https://www.youtube-nocookie.com/embed/${project.projectExtra.projectVideoLink}`"
         :title="project.title"

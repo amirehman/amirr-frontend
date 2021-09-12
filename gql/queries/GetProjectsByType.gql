@@ -3,7 +3,7 @@ query MyQuery ($id: ID!){
     id
     slug
     name
-    projects {
+    projects (where: {tagNotIn: 86}) {
       nodes {
         id
         link

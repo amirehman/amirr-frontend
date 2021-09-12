@@ -9,9 +9,12 @@
     <div class="p-3">
       <nuxt-link :to="`/learn-with-aamir/${data.playlists.nodes[0].slug}/${data.slug}`" class="text-gray-800">{{title}}</nuxt-link>
       <div v-if="data.playlists" class="text-sm text-gray-600 flex items-center justify-between">
-        <span v-for="playlist in data.playlists.nodes" :key="playlist.id">
-          {{playlist.name}}
-        </span>
+        <template v-if="isShowPlaylist">
+          <span v-for="playlist in data.playlists.nodes" :key="playlist.id">
+            {{playlist.name}}
+          </span>
+        </template>
+        <span> {{ $moment(data.date).fromNow() }} </span>
       </div>
     </div>
     <!-- info -->
@@ -20,7 +23,7 @@
 
 <script>
   export default {
-    props: ['data', 'title']
+    props: ['data', 'title', 'isShowPlaylist']
 
   }
 </script>

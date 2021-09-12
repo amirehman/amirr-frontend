@@ -7,8 +7,9 @@
             <span class="font-medium text-gray-700">Version</span>
             </td>
             <td class="border px-4 py-2">
-            <span class="text-gray-800">{{repoName}}</span>
-          </td>
+              <span class="text-gray-800" v-if="repo && repo.tag_name">{{repo.tag_name}}</span>
+              <span class="text-gray-800" v-else> - </span>
+            </td>
         </tr>
         <tr>
           <td class="border px-4 py-2">
@@ -25,7 +26,7 @@
             </span>
           </td>
         </tr>
-        <tr>
+        <tr v-if="project.projectExtra && project.projectExtra.projectFrameworkVersion">
           <td class="border px-4 py-2">
             <span class="font-medium text-gray-700">Framework Version</span>
             </td>
@@ -38,7 +39,8 @@
             <span class="font-medium text-gray-700">Downloads</span>
             </td>
             <td class="border px-4 py-2">
-            <span class="text-gray-800">2333</span>
+            <span v-if="repo.assets" class="text-gray-800">{{repo.assets[0].download_count}}</span>
+            <span v-else>-</span>
           </td>
         </tr>
         <tr>
@@ -120,7 +122,7 @@
   import shortDate from '~/utils/shortDate'
 
   export default {
-    props: ['repoName', 'project'],
+    props: ['repo', 'project'],
     methods:{
       shortDate,
     },

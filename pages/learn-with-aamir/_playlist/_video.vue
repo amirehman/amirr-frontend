@@ -56,8 +56,8 @@
 
           <div class="elemets-used w-full lg:w-1/3 border rounded-xl p-5 order-1 lg:order-2">
             <ProjectTechnologies :technologies="project.technologies.nodes" />
-            <hr class="my-6">
-            <ProjectComponentDetails :project="project" :repo-name="repo.name" />
+            <hr :class="project.projectExtra.projectLink ? 'mt-6 mb-2' : 'my-6'">
+            <ProjectComponentDetails :project="project" />
           </div>
         </div>
       </section>

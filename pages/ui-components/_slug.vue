@@ -28,12 +28,12 @@
 
       </section>
 
-      <section class="info mb-0 lg:mb-32">
+      <section class="info mt-10 lg:mt-0 mb-0 lg:mb-32">
         <div class="w-full flex flex-wrap lg:flex-nowrap lg:space-x-16">
           <div class="w-full lg:w-2/3 order-2 lg:order-1">
 
           <div class="overview w-full page-content">
-              <ProjectContent :content="project.content" title="" />
+              <ProjectContent :content="project.content" v-if="repo" :repo="repo" />
           </div>
 
           <div class="comments mt-24">
@@ -45,7 +45,7 @@
 
           <div class="elemets-used w-full lg:w-1/3 border rounded-xl p-5 order-1 lg:order-2">
             <ProjectTechnologies :technologies="project.technologies.nodes" />
-            <hr class="my-6">
+            <hr class="mt-6">
             <ProjectComponentDetails :project="project" :repo-name="repo.name" />
           </div>
         </div>

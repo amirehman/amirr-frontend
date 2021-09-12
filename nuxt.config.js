@@ -56,6 +56,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/ngrok',
     'nuxt-ssr-cache',
+    '@nuxtjs/moment',
     '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
       id: 'UA-129128246-1'

@@ -12,9 +12,14 @@
       <ul v-if="playlist">
 
         <li v-for="(video, i) in playlist" :key="video.id">
-          <nuxt-link :to="`/learn-with-aamir/${projectslug}/${video.slug}`" class="flex items-center block border-b p-3 space-x-5 hover:bg-yellow-100 transition-all  ">
+          <nuxt-link
+            :to="`/learn-with-aamir/${projectslug}/${video.slug}`"
+            :class="$route.params.video === video.slug ? 'bg-green-100 bg-opacity-50' : ''"
+            class="flex items-center block border-b p-3 space-x-5 hover:bg-yellow-100 transition-all">
+
             <span class="font-medium text-gray-600"> {{i+1}} </span>
             <span class="text-gray-900">{{video.title}}</span>
+
           </nuxt-link>
         </li>
 

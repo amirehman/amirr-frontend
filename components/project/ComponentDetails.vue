@@ -2,6 +2,13 @@
   <div>
     <table class="table-auto w-full">
       <tbody>
+
+        <tr v-if="project.projectExtra.projectLink">
+          <td class="border-b px-4 py-5 text-center" colspan="2">
+            <nuxt-link :to="project.projectExtra.projectLink" class="hover:bg-green-100 font-medium text-gray-700 border rounded-full p-3 mb-2 block">Download This Component</nuxt-link>
+          </td>
+        </tr>
+
         <tr>
           <td class="border-b px-4 py-2">
             <span class="font-medium text-gray-700">Features</span>
@@ -58,7 +65,7 @@
   import shortDate from '~/utils/shortDate'
 
   export default {
-    props: ['repoName', 'project'],
+    props: ['repo', 'project'],
     methods:{
       shortDate,
     },

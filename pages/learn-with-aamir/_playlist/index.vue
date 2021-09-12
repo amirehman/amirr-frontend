@@ -4,8 +4,8 @@
 
         <div class="mb-10 flex items-center justify-between">
 
-            <div>
-              <h1 class="text-2xl">Learn Javasript in Urdu</h1>
+            <div v-if="videos.length != 0 && videos[0].playlists.nodes.length != 0">
+              <h1 class="text-2xl">{{videos[0].playlists.nodes[0].name}}</h1>
             </div>
 
             <div class="filter hidden">
@@ -23,7 +23,7 @@
 
               <div class="border border-gray-200 rounded-lg overflow-hidden" v-for="data in videos" :key="data.id">
 
-                <ProjectsLearnWithAmirProjectBox :data="data" :title="data.title" />
+                <ProjectsLearnWithAmirProjectBox :data="data" :title="data.title" :is-show-playlist="false" />
 
               </div>
               <!-- column -->

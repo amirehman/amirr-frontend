@@ -31,7 +31,7 @@
       <section class="info mb-0 lg:mb-32">
         <div class="w-full flex flex-wrap lg:flex-nowrap lg:space-x-16">
           <div class="w-full lg:w-2/3 order-2 lg:order-1">
-            <ProjectDetails :project="project" :repo-name="repo.name" />
+            <ProjectDetails v-if="repo" :project="project" :repo="repo" />
           <!-- table end -->
 
           <div class="overview mt-16 md:my-16 w-full">

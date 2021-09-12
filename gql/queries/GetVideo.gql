@@ -24,6 +24,7 @@ query MyQuery ($id: ID!){
     }
     projectExtra {
       projectPages
+      projectLink
       projectFrameworkVersion
       projectLicence
       projectGithubRepoName
