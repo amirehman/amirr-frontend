@@ -11,6 +11,7 @@
         </div>
         <!-- filter end -->
 
+
         <div class="content-wrapper">
 
         <div class="image-sec flex items-start mt-6 mb-8 md:mb-0">
@@ -19,9 +20,22 @@
           </div>
         </div>
         <div class="next-prev flex items-center justify-between rounded-b-xl overflow-hidden">
-          <button class="active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-gray-700 hover:bg-green-200 transition-all w-full">Previous</button>
+
+          <span
+            v-if="!prevSlug"
+            class="opacity-75 cursor-not-allowed active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 w-full select-none">Previous</span>
+          <nuxt-link
+            v-else
+            :to="`/learn-with-aamir/${project.playlists.nodes[0]}/${prevSlug}`"
+            class="active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 hover:bg-green-200 transition-all w-full">Prevous Vide</nuxt-link>
+
           <button class="active:outline-none focus:outline-none p-5 border border-t-0 bg-gray-100 text-lg font-medium text-gray-700 hover:bg-gray-200 transition-all w-full" @click="isSideBarOpen(!isProjectSidePanelOpen)">Playlist</button>
-          <button class="active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-gray-700 hover:bg-yellow-200 transition-all w-full">Next</button>
+
+          <span
+            v-if="!nextSlug"
+            class="opacity-75 cursor-not-allowed active:outline-none active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-center text-gray-700 w-full select-none">Next</span>
+          <nuxt-link v-else :to="`/learn-with-aamir/${project.playlists.nodes[0]}/${nextSlug}`" class="active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-center text-gray-700 hover:bg-yellow-200 transition-all w-full">Next</nuxt-link>
+
         </div>
 
 
@@ -52,7 +66,12 @@
         <!-- ========== Playlist ======== -->
 
         <transition name="slide">
-        <ProjectVideosPlaylist v-shortkey.once="[`esc`]" @shortkey.native="closeSidePanel" v-if="isProjectSidePanelOpen" :project="project" />
+        <ProjectVideosPlaylist
+          v-shortkey.once="[`esc`]"
+          @shortkey.native="closeSidePanel"
+          v-if="isProjectSidePanelOpen"
+          :projectslug="project.playlists.nodes[0].slug"
+          :playlist="playlist" />
         </transition>
 
         <!-- ========== Playlist ======== -->
@@ -127,6 +146,31 @@ export default {
       return this.$store.state.isProjectSidePanelOpen
     },
 
+    playlist () {
+      return this.project.playlists.nodes[0].projects.nodes;
+    },
+
+    nextSlug () {
+
+      var slugs = this.project.playlists.nodes[0].projects.nodes.map(s => s.slug)
+      let current = this.$route.params.video
+
+      let next = slugs.indexOf(current)+1;
+
+      return next >= slugs.length ? null : slugs[next]
+
+    },
+
+    prevSlug () {
+      var slugs = this.project.playlists.nodes[0].projects.nodes.map(s => s.slug)
+      let current = this.$route.params.video
+
+      let prev = slugs.indexOf(current)-1;
+
+      return prev < 0 ? null : slugs[prev]
+
+    },
+
     seoContent () {
       if(this.project.content){
         return this.project.content.replace(/<img[^>]*>/g,"").substring(0, 220).replace(/(<([^>]+)>)/gi, "");
@@ -147,7 +191,7 @@ export default {
 
   },
   mounted() {
-    if(this.project) {
+    if(this.project && this.project.projectExtra && this.project.projectExtra.projectGithubRepoName) {
       return this.$githubApi.getRepo(this.project.projectExtra.projectGithubRepoName)
       .then((repo) => {
           this.repo = repo.json;

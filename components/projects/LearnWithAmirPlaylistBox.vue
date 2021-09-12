@@ -1,6 +1,6 @@
 <template>
   <div @click="$router.push({ path: `/learn-with-aamir/${data.slug}`})">
-      <div class="image h-50 bg-gray-200">
+    <div class="image h-50 bg-gray-200">
       <template v-if="data.playlistExtra">
         <img :srcset="data.playlistExtra.playlistThumbnail.srcSet" alt="image" height="auto" width="auto" class="h-full object-cover w-full">
       </template>

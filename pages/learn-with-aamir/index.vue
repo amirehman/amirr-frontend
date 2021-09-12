@@ -15,7 +15,7 @@
 
 
         <div class="content-wrapper">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10" v-if="!$apollo.queries.loading">
 
               <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-yellow-300 transition cursor-pointer" v-for="data in datas" :key="data.id">
 
@@ -27,6 +27,9 @@
 
             </div>
             <!-- grid -->
+
+            <LoaderProjectBox v-else classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10" />
+
 
         </div>
 

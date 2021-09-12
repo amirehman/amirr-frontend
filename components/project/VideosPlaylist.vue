@@ -9,10 +9,10 @@
           </svg>
         </span>
       </div>
-      <ul v-if="project">
+      <ul v-if="playlist">
 
-        <li v-for="(video, i) in project.playlists.nodes[0].projects.nodes" :key="video.id">
-          <nuxt-link :to="`/learn-with-aamir/${project.playlists.nodes[0].slug}/${video.slug}`" class="flex items-center block border-b p-3 space-x-5 hover:bg-yellow-100 transition-all  ">
+        <li v-for="(video, i) in playlist" :key="video.id">
+          <nuxt-link :to="`/learn-with-aamir/${projectslug}/${video.slug}`" class="flex items-center block border-b p-3 space-x-5 hover:bg-yellow-100 transition-all  ">
             <span class="font-medium text-gray-600"> {{i+1}} </span>
             <span class="text-gray-900">{{video.title}}</span>
           </nuxt-link>
@@ -26,7 +26,7 @@
 
 <script>
   export default {
-    props: ['project'],
+    props: ['playlist', 'projectslug'],
     methods: {
       closeSidePanel() {
         this.$store.commit('isProjectSidePanelOpen', false)

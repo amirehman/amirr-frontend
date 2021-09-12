@@ -1,7 +1,7 @@
 export const state = () => ({
   isMenuActive: false,
   user: null,
-  isProjectSidePanelOpen: true
+  isProjectSidePanelOpen: false
 });
 
 export const mutations = {

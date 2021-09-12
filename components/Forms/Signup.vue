@@ -61,7 +61,6 @@
     methods: {
       checkPassword () {
         if (this.form.password !== this.form.confirm_password) {
-          console.log('password mismatch')
           this.error.code = "auth/invalid-email"
           this.error.message = "Password mismatch"
         }else{

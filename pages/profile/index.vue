@@ -31,7 +31,6 @@ export default {
   methods: {
     logout () {
       this.$fire.auth.signOut()
-      console.log('logging out...')
     }
   },
 
