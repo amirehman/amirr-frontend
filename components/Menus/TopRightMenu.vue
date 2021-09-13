@@ -16,7 +16,7 @@
       </template>
       <template v-else>
       <li>
-        <nuxt-link to="/podcasts" class="mr-2 px-5 py-1 inline-block rounded-full bg-green-200 border-2 border-transparent hover:border-green-400 hover:bg-transparent hover:text-black transition-all">Learn With Aamir</nuxt-link>
+        <nuxt-link to="/learn-with-aamir" class="mr-2 px-5 py-1 inline-block rounded-full bg-green-200 border-2 border-transparent hover:border-green-400 hover:bg-transparent hover:text-black transition-all">Learn With Aamir</nuxt-link>
       </li>
       <li>
         <nuxt-link to="/support" class="px-5 py-2 inline-block rounded-full hover:bg-yellow-200 hover:text-black transition-all">Support</nuxt-link>

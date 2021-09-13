@@ -39,6 +39,7 @@
 <script>
 
 export default {
+
   async asyncData({ $gqlQueries }) {
 
     const projects = await $gqlQueries.getLatestProjects()

@@ -37,10 +37,17 @@
 <script>
 
 export default {
+
+  head() {
+    return {
+      title: "Free UI Components & Tools, Using TailwindCSS Bootstrap And Custom CSS | Aamir R."
+    }
+  },
+
   computed: {
     isItems () {
       return this.projectType.projects.nodes.length == 0 ? false : true
-    }
+    },
   },
   async asyncData({ $gqlQueries, redirect }) {
 

@@ -8,6 +8,13 @@ query MyQuery ($id: ID!){
     uri
     date
     content
+    tags {
+      nodes{
+        id
+        name
+        slug
+      }
+    }
     playlists {
       nodes {
         id
@@ -30,6 +37,8 @@ query MyQuery ($id: ID!){
       projectGithubRepoName
       projectLiveLink
       projectVideoLink
+      seoTitle
+      seoDescription
     }
     technologies {
       nodes {

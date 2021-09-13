@@ -38,6 +38,13 @@
 <script>
 
 export default {
+
+  head() {
+    return {
+      title: "Free Clones Of Famous Websites & Applications Using TailwindCSS, Bootstrap And Custom CSS | Aamir R."
+    }
+  },
+
   computed: {
     isItems () {
       return this.projectType.projects.nodes.length == 0 ? false : true

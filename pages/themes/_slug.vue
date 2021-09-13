@@ -14,6 +14,8 @@
           </li>
         </ul>
 
+        <!-- {{seoTags}} -->
+
 
         <div class="image-sec flex flex-wrap lg:flex-nowrap lg:space-x-12 mt-6 mb-8 md:mb-0">
           <div class="w-full lg:w-2/3">
@@ -59,6 +61,7 @@
 export default {
   head() {
     return {
+      title: this.project.title + " | Aamir R.",
       meta: [
         {
           hid: 'twitter:title',
@@ -104,7 +107,23 @@ export default {
           hid: 'og:image:alt',
           property: 'og:image:alt',
           content: this.project.title
-        }
+        },
+
+        {
+        hid: "title",
+        name: "title",
+        content: this.project.title
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: this.seoContent
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: this.project ? this.seoTags.forEach(tag => { tag  }) : 'hello'
+      }
       ]
     }
   },
@@ -114,11 +133,17 @@ export default {
     }
   },
   computed: {
+    seoTags () {
+      if(this.project){
+        return this.project.tags.nodes.map(t => t.name)
+      }
+    },
     seoContent () {
-      if(this.project.content){
-        return this.project.content.replace(/<img[^>]*>/g,"").substring(0, 220).replace(/(<([^>]+)>)/gi, "");
+      if(this.project && this.project.projectExtra.seoDescription){
+        return this.project.projectExtra.seoDescription
+        // return this.project.content.replace(/<img[^>]*>/g,"").substring(0, 220).replace(/(<([^>]+)>)/gi, "");
       }else{
-        return "Learn with Aamir"
+        return "Aamir R. presents Hght quality, free TailwindCSS, and Bootstrap themes, templates, and UI components to download. Get them now!"
       }
     }
   },

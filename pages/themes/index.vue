@@ -38,6 +38,14 @@
 <script>
 
 export default {
+
+  head() {
+    return {
+      title: "Free TailwindCSS, Bootstrap And Custom Themes To Download  | Aamir R."
+    }
+  },
+
+
   computed: {
     isItems () {
       return this.projectType.projects.nodes.length == 0 ? false : true

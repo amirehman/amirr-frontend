@@ -10,11 +10,21 @@ query MyQuery ($id: ID!){
     content
     projectExtra {
       projectPages
+      projectLink
       projectFrameworkVersion
       projectLicence
       projectGithubRepoName
       projectLiveLink
       projectVideoLink
+      seoTitle
+      seoDescription
+    }
+    tags {
+      nodes {
+        id
+        name
+        slug
+      }
     }
     technologies {
       nodes {

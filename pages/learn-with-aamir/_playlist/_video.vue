@@ -27,7 +27,7 @@
           <nuxt-link
             v-else
             :to="`/learn-with-aamir/${project.playlists.nodes[0].slug}/${prevSlug}`"
-            class="active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 hover:bg-green-200 transition-all w-full">Prevous Vide</nuxt-link>
+            class="active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 hover:bg-green-200 transition-all w-full">Previous </nuxt-link>
 
           <button class="active:outline-none focus:outline-none p-5 border border-t-0 bg-gray-100 text-lg font-medium text-gray-700 hover:bg-gray-200 transition-all w-full" @click="isSideBarOpen(!isProjectSidePanelOpen)">Playlist</button>
 
@@ -86,6 +86,7 @@
 export default {
   head() {
     return {
+      title: this.project.title + " | Aamir R.",
       meta: [
         {
           hid: 'twitter:title',
@@ -131,7 +132,23 @@ export default {
           hid: 'og:image:alt',
           property: 'og:image:alt',
           content: this.project.title
-        }
+        },
+
+        {
+        hid: "title",
+        name: "title",
+        content: this.project.title
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: this.seoContent
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: this.project ? this.seoTags.forEach(tag => { tag  }) : 'hello'
+      }
       ]
     }
   },
@@ -171,11 +188,17 @@ export default {
 
     },
 
+    seoTags () {
+      if(this.project){
+        return this.project.tags.nodes.map(t => t.name)
+      }
+    },
     seoContent () {
-      if(this.project.content){
-        return this.project.content.replace(/<img[^>]*>/g,"").substring(0, 220).replace(/(<([^>]+)>)/gi, "");
+      if(this.project && this.project.projectExtra.seoDescription){
+        return this.project.projectExtra.seoDescription
+        // return this.project.content.replace(/<img[^>]*>/g,"").substring(0, 220).replace(/(<([^>]+)>)/gi, "");
       }else{
-        return "Learn with Aamir"
+        return "Aamir R. presents Hght quality, free TailwindCSS, and Bootstrap themes, templates, and UI components to download. Get them now!"
       }
     }
   },

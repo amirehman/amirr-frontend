@@ -5,6 +5,7 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    title: "Download free Tailwind, Bootstrap themes & templates | Aamir R.",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -67,6 +68,13 @@ export default {
     icon: {
         iconSrc: "./static/icon.png"
     },
+    meta: [
+      {
+        hid: "title",
+        name: "title",
+        content: "Download free Tailwind, Bootstrap themes & templates | Aamir R."
+      },
+    ],
     manifest: {
         short_name: "Aamir R.",
         name: "Aamir R.",
@@ -77,9 +85,6 @@ export default {
         scope: "/",
         theme_color: "#000000"
     },
-    workbox: {
-        /* workbox options */
-    }
   },
 
   router: {

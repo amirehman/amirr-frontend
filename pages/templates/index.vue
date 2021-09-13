@@ -36,6 +36,13 @@
 <script>
 
 export default {
+
+  head() {
+    return {
+      title: "Free TailwindCSS, Bootstrap And Custom Templates, To Help You Start Your Next Project! | Aamir R."
+    }
+  },
+
   computed: {
     isItems () {
       return this.projectType.projects.nodes.length == 0 ? false : true
