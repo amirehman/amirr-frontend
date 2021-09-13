@@ -5,7 +5,7 @@ query MyQuery ($id: ID!){
     slug
     description
     slug
-    projects(where: {orderby: {field: DATE, order: ASC}}) {
+    projects(where: {orderby: {field: DATE, order: ASC}}, first: 30) {
       nodes{
         id
         title

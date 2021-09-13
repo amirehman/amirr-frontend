@@ -28,6 +28,11 @@
       </div>
     </section>
 
+    <div class="flex items-center justify-center" v-if="projects.length > 30">
+      <nuxt-link to="/" class="inline-block my-10 border-2 border-yellow-200 rounded-lg px-4 p-2 bg-yellow-200 hover:bg-transparent text-lg tracking-wider text-gray-700 transition">View All Projects</nuxt-link>
+    </div>
+
+
   </div>
 </template>
 

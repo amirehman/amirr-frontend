@@ -26,7 +26,7 @@
             class="opacity-75 cursor-not-allowed active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 w-full select-none">Previous</span>
           <nuxt-link
             v-else
-            :to="`/learn-with-aamir/${project.playlists.nodes[0]}/${prevSlug}`"
+            :to="`/learn-with-aamir/${project.playlists.nodes[0].slug}/${prevSlug}`"
             class="active:outline-none focus:outline-none p-5 border-l border-b bg-green-100 text-lg font-medium text-center text-gray-700 hover:bg-green-200 transition-all w-full">Prevous Vide</nuxt-link>
 
           <button class="active:outline-none focus:outline-none p-5 border border-t-0 bg-gray-100 text-lg font-medium text-gray-700 hover:bg-gray-200 transition-all w-full" @click="isSideBarOpen(!isProjectSidePanelOpen)">Playlist</button>
@@ -34,7 +34,7 @@
           <span
             v-if="!nextSlug"
             class="opacity-75 cursor-not-allowed active:outline-none active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-center text-gray-700 w-full select-none">Next</span>
-          <nuxt-link v-else :to="`/learn-with-aamir/${project.playlists.nodes[0]}/${nextSlug}`" class="active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-center text-gray-700 hover:bg-yellow-200 transition-all w-full">Next</nuxt-link>
+          <nuxt-link v-else :to="`/learn-with-aamir/${project.playlists.nodes[0].slug}/${nextSlug}`" class="active:outline-none focus:outline-none p-5 border-r border-b bg-yellow-100 text-lg font-medium text-center text-gray-700 hover:bg-yellow-200 transition-all w-full">Next</nuxt-link>
 
         </div>
 
