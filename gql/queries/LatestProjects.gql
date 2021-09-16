@@ -1,5 +1,5 @@
 {
-  projects(where: {tagNotIn: 86, orderby: {field: DATE, order: DESC}}, last: 30) {
+  projects(where: {tagNotIn: 86, orderby: {field: DATE, order: DESC}}, first: 30) {
     nodes {
       id
       link
