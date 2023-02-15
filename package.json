@@ -16,6 +16,7 @@
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/ngrok": "^2.0.0",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@nuxtjs/vercel-builder": "^0.24.0",
     "cookieparser": "^0.1.0",
     "cookies": "^0.8.0",
     "core-js": "^3.15.1",

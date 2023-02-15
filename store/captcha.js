@@ -36,11 +36,13 @@ export const mutations = {
 
       } else {
         const messages = [
-          'Comman man its an easy question!',
+          `Are you a robot or a toaster? I'm having trouble telling the difference.`,
           'This is no place for robots!',
           'Now I have a doubt',
-          'Come on bro!',
-          'Are you robot?'
+          'Sorry, this captcha is for humans only!',
+          `If you're having trouble with the captcha, just remember: robots can't cry.`,
+          `Are you a robot, or just really bad at typing?`,
+          `Oops, wrong universe! Try again, extraterrestrial.`
         ]
         const message = messages[Math.floor(Math.random() * messages.length)];
         state.captcha.status = false
